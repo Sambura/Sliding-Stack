@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool isPanning;
     private float lastZ;
     private PlayerCube lowestCube;
+    private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
 
 	private void Update()
 	{
@@ -148,7 +149,7 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if (Mathf.Abs(groundDelta) > float.Epsilon)
 		{
-            Debug.Log("Delta: " + groundDelta + "; tolerance: " + currentRampTolerance + "; distance: " + coveredDistance);
+           // Debug.Log("Delta: " + groundDelta + "; tolerance: " + currentRampTolerance + "; distance: " + coveredDistance);
 		}
 #endif
 
@@ -283,7 +284,7 @@ public class Player : MonoBehaviour
         {
             delta -= currentDelta;
             MoveHeight(-currentDelta, false);
-            yield return new WaitForFixedUpdate();
+            yield return waitForFixedUpdate;
             currentDelta = speed * Time.fixedDeltaTime;
         }
         Destroy(cubes[0].gameObject);
@@ -309,7 +310,7 @@ public class Player : MonoBehaviour
             float currentDelta = blockSpeed * Time.fixedDeltaTime;
             delta -= currentDelta;
             MoveHeight(-currentDelta, false);
-            yield return new WaitForFixedUpdate();
+            yield return waitForFixedUpdate;
         }
 
         delta = 1.25f;
@@ -320,7 +321,7 @@ public class Player : MonoBehaviour
             float currentDelta = Time.fixedDeltaTime * speed;
             delta -= currentDelta;
             MoveHeight(-currentDelta, false);
-            yield return new WaitForFixedUpdate();
+            yield return waitForFixedUpdate;
         }
     }
 
@@ -348,9 +349,9 @@ public class Player : MonoBehaviour
                 cubes[i].transform.Translate(delta);
                 if (i == 0) trailRenderer.transform.Translate(delta, Space.World);
 			}
-            yield return new WaitForFixedUpdate();
+            yield return waitForFixedUpdate;
         }
-        yield return new WaitForEndOfFrame();
+        yield return null;
         trailRenderer.emitting = true;
         isFalling = false;
         animator.SetBool("Fall", false);

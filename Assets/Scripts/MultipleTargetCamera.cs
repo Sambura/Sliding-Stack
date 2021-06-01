@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MultipleTargetCamera : MonoBehaviour
 {
+    [Header("Common settings")]
     public List<Transform> targets;
     public Vector3 offset;
+    [Header("Camera movement settings")]
     public float smoothing;
     public bool freezeX;
     public bool freezeY;
@@ -16,6 +18,7 @@ public class MultipleTargetCamera : MonoBehaviour
 	private void LateUpdate()
 	{
         Vector3 newLocation = targets[0].position;
+
         for (int i = 1; i < targets.Count; i++)
             newLocation += targets[i].position;
 

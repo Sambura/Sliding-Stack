@@ -15,6 +15,10 @@ public class LevelController : MonoBehaviour
 	private List<List<Transform>> redCubes;
 	private List<List<GroundBlock>> groundMap;
 
+	private List<PlayerCube> collidedPlayerCubes = new List<PlayerCube>();
+	private List<Transform> collidedRedCubes = new List<Transform>();
+	private List<Money> collidedMoney = new List<Money>();
+
 	private void Awake()
 	{
 		CalculateAndInitLevelBounds();
@@ -162,7 +166,7 @@ public class LevelController : MonoBehaviour
 
 	public List<PlayerCube> GetCollidedPlayerCubesAndRemove(Vector2 position, float size, float lowest, float highest)
 	{
-		List<PlayerCube> list = new List<PlayerCube>();
+		collidedPlayerCubes.Clear();
 
 		Rect playerRect = new Rect(position - new Vector2(size / 2, size / 2), new Vector2(size, size));
 		for (var iter = playerCubes.First; iter != null;) // Evil foreach with element deletion
@@ -174,17 +178,17 @@ public class LevelController : MonoBehaviour
 			if (cube.transform.position.y >= lowest &&
 				cube.transform.position.y <= highest &&
 				playerRect.Overlaps(cube.rectangle)) {
-				list.Add(cube);
+				collidedPlayerCubes.Add(cube);
 				playerCubes.Remove(current);
 			}
 		}
 
-		return list;
+		return collidedPlayerCubes;
 	}
 
 	public List<Money> GetCollidedMoneyAndRemove(Vector3 position, float size, float lowest, float highest)
 	{
-		List<Money> list = new List<Money>();
+		collidedMoney.Clear();
 
 		Rect playerRect = new Rect(new Vector2(position.x - size / 2, position.z - size / 2), new Vector2(size, size));
 		for (var iter = moneyCollection.First; iter != null;) // Evil foreach with element deletion
@@ -195,17 +199,17 @@ public class LevelController : MonoBehaviour
 			Money money = current.Value;
 			if (highest >= money.height && lowest <= money.height && playerRect.Overlaps(money.rectangle))
 			{
-				list.Add(money);
+				collidedMoney.Add(money);
 				moneyCollection.Remove(current);
 			}
 		}
 
-		return list;
+		return collidedMoney;
 	}
 
 	public List<Transform> GetCollidedRedCubes(Vector3 position, float collisionThreshold)
 	{
-		List<Transform> list = new List<Transform>();
+		collidedRedCubes.Clear();
 
 		List<Transform> first = redCubes[Mathf.FloorToInt(position.z)];
 		List<Transform> second = redCubes[Mathf.CeilToInt(position.z)];
@@ -217,7 +221,7 @@ public class LevelController : MonoBehaviour
 		{
 			if (Mathf.Approximately(one, cube.transform.position.x) ||
 				Mathf.Approximately(two, cube.transform.position.x))
-				list.Add(cube);
+				collidedRedCubes.Add(cube);
 		}
 		if (first != second)
 		{
@@ -225,10 +229,10 @@ public class LevelController : MonoBehaviour
 			{
 				if (Mathf.Approximately(one, cube.transform.position.x) ||
 					Mathf.Approximately(two, cube.transform.position.x))
-					list.Add(cube);
+					collidedRedCubes.Add(cube);
 			}
 		}
 
-		return list;
+		return collidedRedCubes;
 	}
 }

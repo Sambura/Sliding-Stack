@@ -6,31 +6,25 @@ public class GameController : MonoBehaviour
 {
     public int money = 0;
     public int initialCubes = 1;
-    public Animator uiAnimator;
     public Player player;
     public GameObject[] levels;
-    public TMPro.TextMeshProUGUI moneyLabel;
-    public TMPro.TextMeshProUGUI collectedMoneyLabel;
-    public TMPro.TextMeshProUGUI multiplierLabel;
-    public GameObject moneyCollectedPrefab;
-    public Transform canvas;
-    public Transform moneyIcon;
     public int currentLevel;
-    public float moneyPickupEffectSmoothing = 0.2f;
-    public ParticleSystem cameraConfetti;
+    public UIController uIController;
 
     private GameObject levelInstance;
     private int collectedMoney = 0;
-    private int moneyCoroutinesRunning = 0;
 
 	private void Start()
 	{
+        uIController.GameLaunchAnimation();
+        Physics.autoSimulation = false;
+
         LoadProgress();
-        moneyLabel.text = money.ToString();
+        uIController.SetMoneyText(money);
         player.enabled = false;
         player.Death += GameOver;
         player.Completion += LevelCompleted;
-        player.MoneyPickedUp += (x => StartCoroutine(MoneyCollectedAnimation(x)));
+        player.MoneyPickedUp += (x) => { uIController.MoneyPickupAnimation(x, 1); collectedMoney++; };
         levelInstance = Instantiate(levels[currentLevel]);
         player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
 	}
@@ -53,40 +47,16 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
 	}
 
-    private IEnumerator MoneyCollectedAnimation(Vector3 location)
-	{
-        moneyCoroutinesRunning++;
-        Vector3 velocity = Vector3.zero;
-        Vector3 canvasPosition = Camera.main.WorldToScreenPoint(location);
-        GameObject ui = Instantiate(moneyCollectedPrefab, moneyCollectedPrefab.transform.parent);
-        ui.transform.position = canvasPosition;
-        ui.SetActive(true);
-
-        while (Vector3.Distance(ui.transform.position, moneyIcon.position) > 2.5f)
-        {
-            ui.transform.position = Vector3.SmoothDamp(ui.transform.position, 
-                                                       moneyIcon.position, 
-                                                       ref velocity, 
-                                                       moneyPickupEffectSmoothing);
-            yield return new WaitForEndOfFrame();
-        }
-
-        Destroy(ui);
-
-        moneyLabel.text = (money + ++collectedMoney).ToString();
-        moneyCoroutinesRunning--;
-    }
-
     public void GameStart()
 	{
-        uiAnimator.SetTrigger("GameStart");
+        uIController.LevelStartAnimation();
         player.enabled = true;
 	}
 
     private void GameOver()
 	{
         player.enabled = false;
-        uiAnimator.SetTrigger("GameOver");
+        uIController.LevelFailedAnimation();
     }
 
     private void LevelCompleted(int multiplier)
@@ -96,57 +66,44 @@ public class GameController : MonoBehaviour
 
     private IEnumerator LevelCompletedAsync(int multiplier)
 	{
-        yield return new WaitUntil(() => moneyCoroutinesRunning == 0);
-        uiAnimator.SetTrigger("LevelComplete");
+        //yield return new WaitUntil(() => moneyCoroutinesRunning == 0);
+        yield return null;
         collectedMoney *= multiplier;
-        collectedMoneyLabel.text = collectedMoney.ToString();
-        multiplierLabel.text = "×" + multiplier.ToString();
+        uIController.LevelCompletedAnimation(multiplier, collectedMoney);
 
         money += collectedMoney;
         collectedMoney = 0;
-        moneyLabel.text = money.ToString();
+        uIController.SetMoneyText(money);
 
         currentLevel = (currentLevel + 1) % levels.Length;
         SaveProgress();
 	}
 
-    public void PlayConfetti()
+    public void Retry()
 	{
-        cameraConfetti.Play();
-	}
-
-    public void RetryStart()
-	{
-        uiAnimator.SetTrigger("Retry");
-    }
-
-    public void RetryEnd()
-	{
-        levelInstance.SetActive(false);
-        Destroy(levelInstance);
-        levelInstance = Instantiate(levels[currentLevel]);
-        player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
-        moneyLabel.text = money.ToString();
-        cameraConfetti.Stop();
-
-        uiAnimator.SetTrigger("RetryEnd");
-    }
-
-    public void NextLevelStart()
-	{
-        uiAnimator.SetTrigger("NextLevel");
+        uIController.LevelRetryAnimationStart(() =>
+        {
+            levelInstance.SetActive(false);
+            Destroy(levelInstance);
+            levelInstance = Instantiate(levels[currentLevel]);
+            player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
+            uIController.SetMoneyText(money);
+            uIController.LevelReadyAnimation();
+        });
     }
 
     public void NextLevelEnd()
     {
-        levelInstance.SetActive(false);
-        Destroy(levelInstance);
-        levelInstance = Instantiate(levels[currentLevel]);
-        player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
-        collectedMoney = 0;
-        moneyLabel.text = money.ToString();
-        cameraConfetti.Clear();
+        uIController.NextLevelStartAnimation(() =>
+        {
+            levelInstance.SetActive(false);
+            Destroy(levelInstance);
+            levelInstance = Instantiate(levels[currentLevel]);
+            player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
+            collectedMoney = 0;
+            uIController.SetMoneyText(money);
 
-        uiAnimator.SetTrigger("RetryEnd");
+            uIController.LevelReadyAnimation();
+        });
     }
 }

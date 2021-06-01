@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.5f1 (8095aa901b9b) revision 8426922'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home Single Language; OS build 19042.928; Version 2009; 64bit' Language: 'ru' Physical Memory: 14274 MB
+OS: 'Windows 10 Home Single Language; OS build 19042.985; Version 2009; 64bit' Language: 'ru' Physical Memory: 14274 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ E:/Users/super/Documents/Unity/HyperCasualCubeThingCloneForIntership
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58118
+64610
 Successfully changed project path to: E:/Users/super/Documents/Unity/HyperCasualCubeThingCloneForIntership
 E:/Users/super/Documents/Unity/HyperCasualCubeThingCloneForIntership
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 48.37 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 48.53 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.5f1 (8095aa901b9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -35,51 +35,706 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56736
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56036
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002325 seconds.
+Registered in 0.002523 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 46.96 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 43.47 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.234 seconds
+- Completed reload, in  2.380 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000945 seconds.
+Registered in 0.001984 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.057 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1386 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 116.5 MB.
+System memory in use after: 112.0 MB.
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1834.
+Total: 5.494900 ms (FindLiveObjects: 0.338100 ms CreateObjectMapping: 0.098400 ms MarkObjects: 2.256400 ms  DeleteObjects: 2.799900 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Shaders/WaterShaded.shader
+  artifactKey: Guid(16516895e8a79bf49a6562c3c3b84cbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/WaterShaded.shader using Guid(16516895e8a79bf49a6562c3c3b84cbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53e564b3a23550c4dae165ea0f804934') in 0.052508 seconds
+  Import took 0.110328 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.406149 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader Outline.shader
+  artifactKey: Guid(ef3178aabaab247448c46c904e37bf43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader Outline.shader using Guid(ef3178aabaab247448c46c904e37bf43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0717d4b839466684364292fc9ed1dd9b') in 0.010629 seconds
+  Import took 0.049727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.613161 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader.shader
+  artifactKey: Guid(7ffc1bc2bbb1ef64f84b552b2d2f0619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader.shader using Guid(7ffc1bc2bbb1ef64f84b552b2d2f0619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18b9aec1900f97d76339f0184c0ce4ef') in 0.009287 seconds
+  Import took 0.050872 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.92 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 30 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.7 MB.
+System memory in use after: 78.3 MB.
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 1834.
+Total: 6.079100 ms (FindLiveObjects: 0.235900 ms CreateObjectMapping: 0.044400 ms MarkObjects: 3.249300 ms  DeleteObjects: 2.547700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 127.658120 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader 1.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader 1.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e386c96dfe454bf2e8dc27fb664e9744') in 0.018809 seconds
+  Import took 0.050445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011020 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader 1.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Shader 1.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e386c96dfe454bf2e8dc27fb664e9744') in 0.035788 seconds
+  Import took 0.039693 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.180802 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b45675ed1e3e15069dc999ab71d3ca97') in 0.011167 seconds
+  Import took 0.067818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 150.449605 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d217f11d44b563f929c25512d74751f') in 0.005771 seconds
+  Import took 0.040347 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 121.470607 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Include.cginc
+  artifactKey: Guid(77cc4099b4c0a5a4495b17ee94980292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid Include.cginc using Guid(77cc4099b4c0a5a4495b17ee94980292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01ff11261debe7779e9cf4acd1034cde') in 0.013079 seconds
+  Import took 0.040140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.105810 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid URP Support.cginc
+  artifactKey: Guid(5d83281ea07708940a9cf4fe0b981655) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid URP Support.cginc using Guid(5d83281ea07708940a9cf4fe0b981655) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fca6042184eef71ac10de24f287f07b') in 0.010889 seconds
+  Import took 0.050784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.515371 seconds.
+  path: Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid URP Support 1.cginc
+  artifactKey: Guid(460b39f94701d40458d58d24d8053fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External/JMO Assets/Toony Colors Pro/Shaders/Hybrid/TCP2 Hybrid URP Support 1.cginc using Guid(460b39f94701d40458d58d24d8053fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a54d614c9f0ce010dd5936735c56fc6') in 0.011082 seconds
+  Import took 0.038035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.357356 seconds.
+  path: Assets/Shaders/TCP2 Hybrid Include 1.cginc
+  artifactKey: Guid(c49bca8b599b95742b6052388f3c9417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid Include 1.cginc using Guid(c49bca8b599b95742b6052388f3c9417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e72b5334543d1f404c92e8b2cf9ce94e') in 0.010063 seconds
+  Import took 0.047167 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.545112 seconds.
+  path: Assets/Shaders/TCP2 Hybrid Include.cginc
+  artifactKey: Guid(c49bca8b599b95742b6052388f3c9417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid Include.cginc using Guid(c49bca8b599b95742b6052388f3c9417) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74b5bb3ae8c91f2fe68640d1650707dd') in 0.004548 seconds
+  Import took 0.033774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.321400 seconds.
+  path: Assets/Shaders/TCP2 Hybrid URP Support.cginc
+  artifactKey: Guid(460b39f94701d40458d58d24d8053fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid URP Support.cginc using Guid(460b39f94701d40458d58d24d8053fa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7fff35cd0344e984e48c59f2495ad0d') in 0.003907 seconds
+  Import took 0.052612 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.417614 seconds.
+  path: Assets/Resources/DOTweenSettings.asset
+  artifactKey: Guid(558b9618f5a11b345873d77a136dc0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/DOTweenSettings.asset using Guid(558b9618f5a11b345873d77a136dc0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf2c1fe55c23a3a4bd6ba7951f38608f') in 0.012314 seconds
+  Import took 0.276406 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.992427 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1726424d0443bd24b5e57f9716f73c56') in 0.006772 seconds
+  Import took 0.034450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 117.927517 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82273434b3a425256babaed600f37d84') in 0.005198 seconds
+  Import took 0.028506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001303 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82273434b3a425256babaed600f37d84') in 0.005356 seconds
+  Import took 0.008291 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002237 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.246 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.59 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1302 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.4 MB.
+System memory in use after: 102.9 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 1837.
+Total: 4.703400 ms (FindLiveObjects: 0.222200 ms CreateObjectMapping: 0.037500 ms MarkObjects: 1.807400 ms  DeleteObjects: 2.634300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002092 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.010 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1302 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.5 MB.
+System memory in use after: 102.9 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 1840.
+Total: 5.446900 ms (FindLiveObjects: 0.238200 ms CreateObjectMapping: 0.047200 ms MarkObjects: 2.257400 ms  DeleteObjects: 2.901400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 231.795666 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbe9d30cab7139a5f37e3ddfc10577ff') in 0.020622 seconds
+  Import took 0.056251 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.589849 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbe9d30cab7139a5f37e3ddfc10577ff') in 0.007888 seconds
+  Import took 0.012079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.256531 seconds.
+  path: Assets/Shaders/Edited_Hybrid Shader.mat
+  artifactKey: Guid(d76bd28937e63164e8fe77049d9eed73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Edited_Hybrid Shader.mat using Guid(d76bd28937e63164e8fe77049d9eed73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b3b9eb6bdb2d330d924d2068ed1a9d2') in 0.305568 seconds
+  Import took 0.308690 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002191 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.566 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.97 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1302 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.8 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1884.
+Total: 10.163500 ms (FindLiveObjects: 0.474200 ms CreateObjectMapping: 0.111000 ms MarkObjects: 4.729100 ms  DeleteObjects: 4.844900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002009 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.998 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1887.
+Total: 5.857000 ms (FindLiveObjects: 0.262100 ms CreateObjectMapping: 0.051200 ms MarkObjects: 2.317800 ms  DeleteObjects: 3.223600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001953 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.058 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1890.
+Total: 6.047100 ms (FindLiveObjects: 0.331600 ms CreateObjectMapping: 0.067000 ms MarkObjects: 2.396200 ms  DeleteObjects: 3.249900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001928 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.013 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1893.
+Total: 6.196700 ms (FindLiveObjects: 0.232800 ms CreateObjectMapping: 0.037900 ms MarkObjects: 2.472700 ms  DeleteObjects: 3.451000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002188 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.430 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1896.
+Total: 8.947600 ms (FindLiveObjects: 0.464000 ms CreateObjectMapping: 0.074700 ms MarkObjects: 3.748500 ms  DeleteObjects: 4.654900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002146 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 - Completed reload, in  1.022 seconds
 Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1377 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 115.7 MB.
-System memory in use after: 111.2 MB.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 1821.
-Total: 5.293000 ms (FindLiveObjects: 0.219600 ms CreateObjectMapping: 0.053900 ms MarkObjects: 2.301200 ms  DeleteObjects: 2.716500 ms)
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1899.
+Total: 6.019600 ms (FindLiveObjects: 0.255100 ms CreateObjectMapping: 0.047300 ms MarkObjects: 2.237900 ms  DeleteObjects: 3.477200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002054 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.020 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.70 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1902.
+Total: 6.470900 ms (FindLiveObjects: 0.309500 ms CreateObjectMapping: 0.050600 ms MarkObjects: 2.417700 ms  DeleteObjects: 3.691400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1813.682113 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4313f0e6be53464f887cedd923677cd3') in 0.021571 seconds
+  Import took 0.052052 seconds .
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/FinishStaircase.prefab
-  artifactKey: Guid(60f451e51b593fb46bd6e80f895982b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FinishStaircase.prefab using Guid(60f451e51b593fb46bd6e80f895982b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a26a73b5870529e5036dcfa06a65a82') in 0.229890 seconds
-  Import took 0.234057 seconds .
+  Time since last request: 0.000394 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4313f0e6be53464f887cedd923677cd3') in 0.004433 seconds
+  Import took 0.007827 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.606691 seconds.
+  Time since last request: 34.182953 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '108bc44b887438ac4ad81e6bc1de5653') in 0.006352 seconds
+  Import took 0.035295 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002002 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.064 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.7 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1905.
+Total: 5.994100 ms (FindLiveObjects: 0.260100 ms CreateObjectMapping: 0.053400 ms MarkObjects: 2.192700 ms  DeleteObjects: 3.486100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002143 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.078 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.8 MB.
+System memory in use after: 106.3 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1908.
+Total: 6.450800 ms (FindLiveObjects: 0.306200 ms CreateObjectMapping: 0.058000 ms MarkObjects: 2.948900 ms  DeleteObjects: 3.135900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 951.746917 seconds.
   path: Assets/Prefabs/FinishStaircase.prefab
   artifactKey: Guid(60f451e51b593fb46bd6e80f895982b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FinishStaircase.prefab using Guid(60f451e51b593fb46bd6e80f895982b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6382352b56c553eb7a7c02d3047f21bd') in 0.073006 seconds
-  Import took 0.077325 seconds .
+Start importing Assets/Prefabs/FinishStaircase.prefab using Guid(60f451e51b593fb46bd6e80f895982b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '856215f54d4a21cfb93676d1fe6c4862') in 0.275175 seconds
+  Import took 0.318201 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016598 seconds.
+  path: Assets/Prefabs/Money.prefab
+  artifactKey: Guid(bff8387cb22462d43976e6851ed0ecb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Money.prefab using Guid(bff8387cb22462d43976e6851ed0ecb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37b673750299925c2260bad984a981be') in 0.084960 seconds
+  Import took 0.167190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.792439 seconds.
+  path: Assets/Levels/GroundLevels.prefab
+  artifactKey: Guid(566e1907c480f1d41a301408492c7fc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/GroundLevels.prefab using Guid(566e1907c480f1d41a301408492c7fc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acd5d6b5a55558125dd0bd8d0c705d57') in 0.090603 seconds
+  Import took 0.118838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Levels/Lava.prefab
+  artifactKey: Guid(1fbcdf6f51afbb04bba8abdab0e013e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Lava.prefab using Guid(1fbcdf6f51afbb04bba8abdab0e013e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6322b315e5dce96b4ef9af2eff800301') in 0.190008 seconds
+  Import took 0.210082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/Levels/Level 0.prefab
+  artifactKey: Guid(cc7fd17ed978e524daf701dc643e33c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Level 0.prefab using Guid(cc7fd17ed978e524daf701dc643e33c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9dffee05dc78dd0f650a78ef2bb06ce') in 0.155190 seconds
+  Import took 0.167965 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Levels/PlayerCubesAndMoney.prefab
+  artifactKey: Guid(987594c8337f83e4696ec1544a9a97c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/PlayerCubesAndMoney.prefab using Guid(987594c8337f83e4696ec1544a9a97c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e87eeec08e1f43afd86e459caed205e') in 0.090882 seconds
+  Import took 0.102388 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002389 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.197 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1301 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 113.1 MB.
+System memory in use after: 108.6 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1914.
+Total: 5.050700 ms (FindLiveObjects: 0.237200 ms CreateObjectMapping: 0.040900 ms MarkObjects: 2.012900 ms  DeleteObjects: 2.757800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 78533.836199 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06fd1dd325c1eff0c1d72a3d8c88280a') in 0.136564 seconds
+  Import took 0.206118 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 244.017648 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86390435cd6d0a4d26322f65a2f9f39d') in 0.007159 seconds
+  Import took 0.010643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 137.323372 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d69ee424f3ea01afd27beb584dffbd1') in 0.008575 seconds
+  Import took 0.048576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001587 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d69ee424f3ea01afd27beb584dffbd1') in 0.004161 seconds
+  Import took 0.007576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.182424 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bb7af9d7daedda78164a83ca05aafb8') in 0.004249 seconds
+  Import took 0.047912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003815 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bb7af9d7daedda78164a83ca05aafb8') in 0.018010 seconds
+  Import took 0.021763 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.080794 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0bccb93b5fa950ebfdabc26cf81c38a') in 0.005075 seconds
+  Import took 0.031937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.938562 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccd847c2c31c2af479aefff81f09c4df') in 0.006589 seconds
+  Import took 0.033707 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 80.362551 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '697e5560b3ae7a676bd2ad2f06a6284c') in 0.005824 seconds
+  Import took 0.026961 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.789049 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fb167dd952fc1ca84a6707216ca92eb') in 0.004984 seconds
+  Import took 0.016975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.362819 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8da2d75b2b4796defa4c8df8ca97659') in 0.005891 seconds
+  Import took 0.026911 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.874237 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94a5b437cd9494d8c9e6c145f40b328b') in 0.005586 seconds
+  Import took 0.132507 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.953041 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e909bf10950c9b5b1ae66c955b5f84b') in 0.004851 seconds
+  Import took 0.008159 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.800573 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf1b1e85cd921753146b1d4ba0b44219') in 0.006560 seconds
+  Import took 0.044880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015753 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf1b1e85cd921753146b1d4ba0b44219') in 0.021216 seconds
+  Import took 0.028709 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.999206 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc7f7024ae19a3c1b0367f3c68104726') in 0.004760 seconds
+  Import took 0.008790 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.577146 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d2a3541f4f71397f4c0df71a4771aef') in 0.007614 seconds
+  Import took 0.030924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.733070 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d0a16581f2d978368c8f35da1af6cf6') in 0.011092 seconds
+  Import took 0.052065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006197 seconds.
+  path: Assets/Shaders/TCP2 Hybrid shader test.shader
+  artifactKey: Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/TCP2 Hybrid shader test.shader using Guid(1d700f7d3b39deb458be7e6364ecbcd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d0a16581f2d978368c8f35da1af6cf6') in 0.004971 seconds
+  Import took 0.008571 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
