@@ -1,13 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelController : MonoBehaviour
+public class LevelController
 {
-	[HideInInspector] public float finishZ = float.PositiveInfinity;
+	public float FinishZ { get; private set; }
 
-	private int levelWidth = 5;
-	private int levelLength = 1000;
+	public GameObject LevelInstance
+	{
+		get { return _levelInstance; }
+		set => SetLevelInstance(value);
+	}
+	private GameObject _levelInstance;
+	
+	private int levelWidth;
+	private int levelLength;
 	private float halfLevelWidth;
 
 	private LinkedList<PlayerCube> playerCubes = new LinkedList<PlayerCube>();
@@ -19,17 +25,25 @@ public class LevelController : MonoBehaviour
 	private List<Transform> collidedRedCubes = new List<Transform>();
 	private List<Money> collidedMoney = new List<Money>();
 
-	private void Awake()
+	private void SetLevelInstance(GameObject level)
 	{
+		_levelInstance = level;
+
 		CalculateAndInitLevelBounds();
 		InitLevelObjects();
 	}
 
 	private void CalculateAndInitLevelBounds()
 	{
+		levelLength = 0;
+		levelWidth = 0;
+#if DEBUG
+		FinishZ = float.PositiveInfinity;
+#endif
+
 		Stack<Transform> children = new Stack<Transform>();
 		List<GroundBlock> groundBlocks = new List<GroundBlock>();
-		children.Push(transform);
+		children.Push(_levelInstance.transform);
 
 		while (children.Count > 0)
 		{
@@ -42,17 +56,17 @@ public class LevelController : MonoBehaviour
 				if (ground != null) {
 					groundBlocks.Add(ground);
 					int zMax = Mathf.RoundToInt(ground.transform.position.z) + ground.span.y + ground.span.height;
-					int xMax = Mathf.RoundToInt(ground.transform.position.x) + ground.span.x + ground.span.y;
+					int xMax = Mathf.RoundToInt(ground.transform.position.x) + ground.span.x + ground.span.width - 1;
 					levelLength = Mathf.Max(levelLength, zMax);
 					levelWidth = Mathf.Max(levelWidth, xMax);
 				}
 
-				if (child.CompareTag("Finish")) finishZ = child.position.z;
+				if (child.CompareTag("Finish")) FinishZ = child.position.z;
 			}
 		}
-
-		if (float.IsPositiveInfinity(finishZ)) Debug.LogError("Finish marker was not found");
-
+#if DEBUG
+		if (float.IsPositiveInfinity(FinishZ)) Debug.LogError("Finish marker was not found");
+#endif
 		levelWidth = 1 + levelWidth * 2;
 		halfLevelWidth = levelWidth / 2f;
 
@@ -78,10 +92,11 @@ public class LevelController : MonoBehaviour
 
 	private void InitLevelObjects()
 	{
-		// This enumeration cannot be merged into CalculateAndInitLevelBounds
+		moneyCollection.Clear();
+		playerCubes.Clear();
+
 		Stack<Transform> children = new Stack<Transform>();
-		List<GroundBlock> groundBlocks = new List<GroundBlock>();
-		children.Push(transform);
+		children.Push(_levelInstance.transform);
 
 		while (children.Count > 0)
 		{
@@ -104,7 +119,7 @@ public class LevelController : MonoBehaviour
 					continue;
 				}
 
-				if (child.CompareTag("RedCube"))
+				if (child.CompareTag("RedCube")) // Red cubes do not have a script on them
 				{
 					redCubes[Mathf.RoundToInt(child.position.z)].Add(child);
 					continue;

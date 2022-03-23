@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
     public Transform movingTarget;
     public float cubesPickupAreaSize = 1f;
     public float movementSpeed = 10f;
-    public float panFactor = 3f;
+    public float finishMovementSpeed = 10f;
+    public float finishAccelerationDuration = 2f;
+    public ParticleSystem accelerationEffect;
+    public float controlsSensitivity = 3f;
     public TrailRenderer trailRenderer;
     public Animator animator;
     public float gravityAcceleration = 9.8f;
@@ -24,25 +28,38 @@ public class Player : MonoBehaviour
 
     public event System.Action<Vector3> MoneyPickedUp; // coordinates where money was located
     public event System.Action Death;
-    public event System.Action<int> Completion; // Collected money, multipier
+    public event System.Action<int> Completion; // multiplier
 
     private List<PlayerCube> cubes;
     private LevelController controller;
-    private Vector2 lastPosition;
     private bool isFalling;
     private float targetGround;
-    private bool isPanning;
     private float lastZ;
     private PlayerCube lowestCube;
-    private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+    private readonly WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+    private bool isFinished;
+    private float _currentMovementSpeed;
+    private Tween _finishAcceleration;
+
+	private void Awake()
+	{
+        _finishAcceleration = DOTween.To(() => { return _currentMovementSpeed; }, x => { _currentMovementSpeed = x; }, finishMovementSpeed, finishAccelerationDuration).SetEase(Ease.InQuad);
+	}
 
 	private void Update()
 	{
-		MovePlayer();
+		MoveForward();
         PickupMoney();
+
+        if (isFinished == false && transform.position.z >= controller.FinishZ)
+        {
+            isFinished = true;
+            _finishAcceleration.Restart();
+            accelerationEffect.Play();
+        }
     }
 
-	void FixedUpdate()
+	private void FixedUpdate()
     {
         // Pickup
         PickupPlayerCubes();
@@ -52,60 +69,23 @@ public class Player : MonoBehaviour
         lastZ = movingTarget.position.z; // Remember last location
     }
 
-    private void MovePlayer()
+    private void MoveForward()
 	{
-        // Move forward
-        Vector3 forwardDelta = Vector3.forward * movementSpeed * Time.deltaTime;
+        Vector3 forwardDelta = Vector3.forward * _currentMovementSpeed * Time.deltaTime;
         movingTarget.Translate(forwardDelta);
+    }
 
-        // Check for mouse input and move sideways
-        if (isPanning)
-        {
-#if UNITY_EDITOR || UNITY_STANDALONE
-            isPanning = Input.GetMouseButton(0);
-#elif UNITY_ANDROID
-            isPanning = Input.touchCount > 0;
-#endif
-        }
-        else
-        {
+    private void MoveSideways(float horizontalDelta)
+    {
+        float normalizedDelta = (horizontalDelta / Screen.dpi) * controlsSensitivity;
 
-#if UNITY_EDITOR || UNITY_STANDALONE
-            if (Input.GetMouseButton(0))
-#elif UNITY_ANDROID
-            if (Input.touchCount > 0)
-#endif
-            {
-                isPanning = true;
-#if UNITY_EDITOR || UNITY_STANDALONE
-                lastPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-#elif UNITY_ANDROID
-                lastPosition = Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position);
-#endif
+        float newX = movingTarget.position.x + normalizedDelta;
+        float absoluteValue = Mathf.Abs(newX);
 
-            }
-            else
-                isPanning = false;
-        }
+        if (absoluteValue > xConstraint) // If resulting coordinate is beyond the constraint
+            newX = Mathf.Sign(newX) * xConstraint;
 
-        if (isPanning)
-        {
-#if UNITY_EDITOR || UNITY_STANDALONE
-            Vector2 currentPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-#elif UNITY_ANDROID
-            Vector2 currentPosition = Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position);
-#endif
-            Vector2 delta = currentPosition - lastPosition;
-            lastPosition = currentPosition;
-
-            movingTarget.Translate(new Vector3(delta.x * panFactor, 0));
-            if (Mathf.Abs(movingTarget.position.x) > xConstraint)
-                movingTarget.position = new Vector3(
-                    Mathf.Sign(movingTarget.position.x) * xConstraint,
-                    0,
-                    movingTarget.position.z
-                    );
-        }
+        movingTarget.position = new Vector3(newX, movingTarget.position.y, movingTarget.position.z);
     }
 
     private void PickupPlayerCubes()
@@ -165,7 +145,7 @@ public class Player : MonoBehaviour
 
             if (cubes.Count <= cubesLoss) // If all cubes are lost
             {
-                if (movingTarget.position.z >= controller.finishZ)
+                if (movingTarget.position.z >= controller.FinishZ)
                 {
                     LevelCompleted();
                     return;
@@ -177,7 +157,7 @@ public class Player : MonoBehaviour
                 }
             }
             for (int i = 0; i < cubesLoss; i++)
-                cubes[i].transform.parent = controller.transform; // Unbinding lost cubes
+                cubes[i].transform.parent = controller.LevelInstance.transform; // Unbinding lost cubes
             cubes.RemoveRange(0, cubesLoss); // Remove cubes form the list
             trailRenderer.transform.Translate(new Vector3(0, cubesLoss), Space.World); // Move trail
             lowestCube = cubes[0];
@@ -236,7 +216,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < cubes.Count; i++)
             if (removed[i] && cubes[i] != null)
             {
-                cubes[i].transform.parent = controller.transform;
+                cubes[i].transform.parent = controller.LevelInstance.transform;
                 cubes[i] = null;
             }
 
@@ -359,18 +339,23 @@ public class Player : MonoBehaviour
 
     private void GameOver()
 	{
+        InputManager.HorizontalDrag -= MoveSideways;
+
         animator.SetBool("Dead", true);
         Death?.Invoke();
 	}
 
     private void LevelCompleted()
 	{
+        InputManager.HorizontalDrag -= MoveSideways;
+
         this.enabled = false;
         animator.SetBool("Dance", true);
-        int multiplier = Mathf.Min(11, Mathf.FloorToInt(movingTarget.position.z - controller.finishZ) / 5);
+        int multiplier = Mathf.Min(11, Mathf.FloorToInt(movingTarget.position.z - controller.FinishZ) / 5);
         if (multiplier == 11) multiplier = 20;
         if (multiplier == 0) multiplier = 1;
         Completion?.Invoke(multiplier);
+        accelerationEffect.Stop();
 	}
 
     public void InitPlayer(LevelController controller, int initialCubeCount)
@@ -386,10 +371,13 @@ public class Player : MonoBehaviour
             foreach (PlayerCube cube in cubes)
                 if (cube != null) Destroy(cube.gameObject); else Debug.LogError("Null player cube encountered");
         isFalling = false;
-        isPanning = false;
         targetGround = 1;
         trailRenderer.transform.localPosition = trailPostiton;
         trailRenderer.Clear();
+        isFinished = false;
+        _currentMovementSpeed = movementSpeed;
+        _finishAcceleration.Pause();
+        accelerationEffect.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
 
         animator.SetBool("Dead", false);
         animator.SetBool("Fall", false);
@@ -413,5 +401,8 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector3(0, height - 0.5f);
         transform.parent = cubes[cubes.Count - 1].transform;
+
+        InputManager.HorizontalDrag -= MoveSideways; // To be safe (fires on resets during gameplay)
+        InputManager.HorizontalDrag += MoveSideways;
 	}
 }

@@ -4,35 +4,41 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public int money = 0;
-    public int initialCubes = 1;
+    public int initialCubesCount = 1;
     public Player player;
     public GameObject[] levels;
     public int currentLevel;
     public UIController uIController;
+    public int targerFrameRate = 50;
+    public int powerSavingFrameRate = 40;
 
-    private GameObject levelInstance;
+    private LevelController _levelController;
     private int collectedMoney = 0;
+    private int money;
+
+	private void Awake()
+	{
+		SettingsManager.PowerSaverChanged += OnPowerSavingChanged;
+    }
 
 	private void Start()
 	{
-        uIController.GameLaunchAnimation();
         Physics.autoSimulation = false;
-
-        LoadProgress();
-        uIController.SetMoneyText(money);
         player.enabled = false;
+        _levelController = new LevelController();
+        
         player.Death += GameOver;
         player.Completion += LevelCompleted;
-        player.MoneyPickedUp += (x) => { uIController.MoneyPickupAnimation(x, 1); collectedMoney++; };
-        levelInstance = Instantiate(levels[currentLevel]);
-        player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
+        player.MoneyPickedUp += OnMoneyCollected;
+
+        LoadProgress();
+        LoadLevel();
 	}
 
     private void LoadProgress()
 	{
         money = PlayerPrefs.GetInt("MoneyCount", 0);
-        initialCubes = PlayerPrefs.GetInt("InitialCubesCount", 1);
+        initialCubesCount = PlayerPrefs.GetInt("InitialCubesCount", 1);
 #if !UNITY_EDITOR
         currentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 #endif
@@ -42,13 +48,14 @@ public class GameController : MonoBehaviour
 	{
         PlayerPrefs.SetInt("MoneyCount", money);
         PlayerPrefs.SetInt("CurrentLevel", currentLevel);
-        PlayerPrefs.SetInt("InitialCubesCount", initialCubes);
+        PlayerPrefs.SetInt("InitialCubesCount", initialCubesCount);
 
         PlayerPrefs.Save();
 	}
 
     public void GameStart()
 	{
+        InputManager.PointerDown -= GameStart;
         uIController.LevelStartAnimation();
         player.enabled = true;
 	}
@@ -61,49 +68,62 @@ public class GameController : MonoBehaviour
 
     private void LevelCompleted(int multiplier)
 	{
-        StartCoroutine(LevelCompletedAsync(multiplier));
-    }
-
-    private IEnumerator LevelCompletedAsync(int multiplier)
-	{
-        //yield return new WaitUntil(() => moneyCoroutinesRunning == 0);
-        yield return null;
         collectedMoney *= multiplier;
-        uIController.LevelCompletedAnimation(multiplier, collectedMoney);
-
         money += collectedMoney;
+        uIController.LevelCompletedAnimation(multiplier, collectedMoney, () => { if (multiplier > 1) uIController.AnimateMoneyText(money); });
         collectedMoney = 0;
-        uIController.SetMoneyText(money);
-
         currentLevel = (currentLevel + 1) % levels.Length;
         SaveProgress();
-	}
-
-    public void Retry()
-	{
-        uIController.LevelRetryAnimationStart(() =>
-        {
-            levelInstance.SetActive(false);
-            Destroy(levelInstance);
-            levelInstance = Instantiate(levels[currentLevel]);
-            player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
-            uIController.SetMoneyText(money);
-            uIController.LevelReadyAnimation();
-        });
     }
 
-    public void NextLevelEnd()
+    private void LoadLevel()
     {
-        uIController.NextLevelStartAnimation(() =>
-        {
-            levelInstance.SetActive(false);
-            Destroy(levelInstance);
-            levelInstance = Instantiate(levels[currentLevel]);
-            player.InitPlayer(levelInstance.GetComponent<LevelController>(), initialCubes);
-            collectedMoney = 0;
-            uIController.SetMoneyText(money);
+        // Instantiate new level
+        if (_levelController.LevelInstance != null) 
+            Destroy(_levelController.LevelInstance); // For initial level creation
+        _levelController.LevelInstance = Instantiate(levels[currentLevel]);
 
-            uIController.LevelReadyAnimation();
+        // Inititalize player
+        player.InitPlayer(_levelController, initialCubesCount);
+
+        collectedMoney = 0; // Reset collected money
+
+        // Set up UI and enable animation
+        uIController.SetMoneyText(money);
+        uIController.LevelReadyAnimation();
+        
+        // Subscribe to PointerDown event that triggers game start
+        InputManager.PointerDown += GameStart;
+    }
+
+    public void ResetProgress()
+	{
+        player.enabled = false;
+        money = 0;
+        currentLevel = 0;
+        initialCubesCount = 1;
+
+        SaveProgress();
+        uIController.ResetProgressAnimation(() =>
+        {
+            InputManager.PointerDown -= GameStart;
+            LoadLevel();
         });
+	}
+
+    public void Retry() => uIController.LevelRetryAnimation(LoadLevel);
+    public void Continue() => uIController.NextLevelAnimation(LoadLevel);
+    private void OnPowerSavingChanged(bool value) => Application.targetFrameRate = value ? powerSavingFrameRate : targerFrameRate;
+    private void OnMoneyCollected(Vector3 position)
+    {
+        uIController.MoneyPickupAnimation(position, 1);
+        collectedMoney++;
+    }
+
+	private void OnDestroy()
+	{
+        player.Death -= GameOver;
+        player.Completion -= LevelCompleted;
+        player.MoneyPickedUp -= OnMoneyCollected;
     }
 }

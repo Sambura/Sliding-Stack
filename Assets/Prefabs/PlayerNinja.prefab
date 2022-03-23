@@ -261,8 +261,8 @@ SkinnedMeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -453,7 +453,10 @@ MonoBehaviour:
   movingTarget: {fileID: 0}
   cubesPickupAreaSize: 1
   movementSpeed: 8
-  panFactor: 4
+  finishMovementSpeed: 10
+  finishAccelerationDuration: 2
+  accelerationEffect: {fileID: 0}
+  controlsSensitivity: 3
   trailRenderer: {fileID: 0}
   animator: {fileID: 3461863851933357582}
   gravityAcceleration: 40
